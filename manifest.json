@@ -1,14 +1,16 @@
 {
-  "manifest_version": 2,
-  "name": "Vimium",
-  "version": "1.66",
-  "description": "The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.",
-  "icons": {  "16": "icons/icon16.png",
-              "48": "icons/icon48.png",
-             "128": "icons/icon128.png" },
-  "minimum_chrome_version": "69.0",
-  "background": {
-    "scripts": [
+    "manifest_version": 2,
+    "name": "NVimium",
+    "version": "0.1.0",
+    "description": "The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "minimum_chrome_version": "69.0",
+    "background": {
+        "scripts": [
       "lib/utils.js",
       "lib/settings.js",
       "background_scripts/bg_utils.js",
@@ -20,13 +22,13 @@
       "background_scripts/marks.js",
       "background_scripts/main.js"
     ]
-  },
-  "options_ui": {
-    "page": "pages/options.html",
-    "chrome_style": false,
-    "open_in_tab": true
-  },
-  "permissions": [
+    },
+    "options_ui": {
+        "page": "pages/options.html",
+        "chrome_style": false,
+        "open_in_tab": true
+    },
+    "permissions": [
     "tabs",
     "bookmarks",
     "history",
@@ -38,10 +40,10 @@
     "webNavigation",
     "<all_urls>"
   ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["lib/utils.js",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["lib/utils.js",
              "lib/keyboard_utils.js",
              "lib/dom_utils.js",
              "lib/rect.js",
@@ -62,30 +64,30 @@
              "content_scripts/mode_normal.js",
              "content_scripts/vimium_frontend.js"
             ],
-      "css": ["content_scripts/vimium.css"],
-      "run_at": "document_start",
-      "all_frames": true,
-      "match_about_blank": true
+            "css": ["content_scripts/vimium.css"],
+            "run_at": "document_start",
+            "all_frames": true,
+            "match_about_blank": true
     },
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content_scripts/injected.js"],
-      "run_at": "document_start",
-      "all_frames": true,
-      "match_about_blank": true
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content_scripts/injected.js"],
+            "run_at": "document_start",
+            "all_frames": true,
+            "match_about_blank": true
     },
-    {
-      "matches": ["file:///", "file:///*/"],
-      "css": ["content_scripts/file_urls.css"],
-      "run_at": "document_start",
-      "all_frames": true
+        {
+            "matches": ["file:///", "file:///*/"],
+            "css": ["content_scripts/file_urls.css"],
+            "run_at": "document_start",
+            "all_frames": true
     }
   ],
-  "browser_action": {
-    "default_icon": "icons/browser_action_disabled.png",
-    "default_popup": "pages/popup.html"
-  },
-  "web_accessible_resources": [
+    "browser_action": {
+        "default_icon": "icons/browser_action_disabled.png",
+        "default_popup": "pages/popup.html"
+    },
+    "web_accessible_resources": [
     "pages/vomnibar.html",
     "content_scripts/vimium.css",
     "pages/hud.html",
